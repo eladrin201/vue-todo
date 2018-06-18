@@ -35,7 +35,13 @@ export default {
 </script>
 
 <style>
-  ul {
-    text-align: left;
+  /* Global styles */
+  .sr-only {
+    position:absolute;
+    left:-10000px;
+    top:auto;
+    width:1px;
+    height:1px;
+    overflow:hidden;
   }
 </style>
