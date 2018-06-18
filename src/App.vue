@@ -2,13 +2,15 @@
   <todo-list v-bind:todos="todos"></todo-list>
 </template>
 
-<script type = "text/javascript" >
+<script type ="text/javascript">
 import TodoList from './components/TodoList';
+import Todo from './components/Todo';
 
 export default {
   name: 'app',
   components: {
     TodoList,
+    Todo,
   },
   data() {
     return {
