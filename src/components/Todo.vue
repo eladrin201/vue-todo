@@ -7,6 +7,14 @@
       <p class="meta">
         {{ todo.project }}
       </p>
+      <button class="right floated edit icon" v-on:click="showForm">
+        <i class="edit icon"></i>
+        <span class="sr-only">Edit</span>
+      </button>
+      <button class="right floated edit icon" v-on:click="emitDelete(todo)">
+        <i class="trash icon"></i>
+        <span class="sr-only">Delete</span>
+      </button>
     </div>
     <div class="content" v-show="isEditing">
       <form class="ui form">
@@ -28,10 +36,6 @@
       </form>
     </div>
     <div class="extra content">
-      <button class="right floated edit icon" v-on:click="showForm">
-        <i class="edit icon"></i>
-        <span class="sr-only">Edit</span>
-      </button>
       <button class="ui bottom attached green basic button" v-show="todo.done">
         Completed
       </button>
@@ -43,6 +47,7 @@
 </template>
 
 <script type="text/javascript">
+
 export default {
   props: ['todo'],
   data() {
@@ -56,6 +61,10 @@ export default {
     },
     hideForm() {
       this.isEditing = false;
+    },
+    emitDelete: function emitDelete(todo) {
+      console.log('Emitting event', this.$emit, todo);
+      this.$emit('delete-todo', todo);
     },
   },
 };
